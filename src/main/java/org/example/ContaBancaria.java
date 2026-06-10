@@ -1,7 +1,7 @@
 package org.example;
 
 public class ContaBancaria {
-    private double saldo;
+    private double saldo = 1000;
 
     public void depositar(double valor) {
         saldo=+ valor;
