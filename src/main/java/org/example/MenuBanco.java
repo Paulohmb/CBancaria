@@ -4,31 +4,44 @@ import java.util.Scanner;
 
 public class MenuBanco {
 
-
-    ContaBancaria minhaGrana = new ContaBancaria();
-
-    /*Agora que você tem a classe ContaBancaria, altere o main para criar um objeto do tipo ContaBancaria,
-    e depois ele fica num loop que primeiro mostra o saldo, depois mostra um menu com as opções
-    1-Depositar, 2-Sacar, 0-Sair, e fica repetindo até a pessoa pedir pra sair.
-    Se pedir pra sacar ou depositar, pede o valor e faz a operação.*/
-    int opcao = 0;
-    do{
-
-
-        // criar o treco que digita
+    public void Menu() {
         Scanner teclado = new Scanner(System.in);
+        ContaBancaria minhaGrana = new ContaBancaria();
 
+        int opcao;
 
-        System.out.printf("Saldo RS %.2f\n",minhaGrana.getSaldo());
+        do {
+            System.out.printf("\nSaldo: R$ %.2f\n", minhaGrana.getSaldo());
 
-        // digitar um valor pra depositar
-        System.out.println("Quanto quer depositar?");
-        double valor = teclado.nextDouble(); // puxa um double do teclado
-        minhaGrana.depositar(valor);
+            System.out.printf("1 - Depositar");
+            System.out.printf("2 - Sacar");
+            System.out.printf("0 - Sair");
+            System.out.printf("Escolha uma opção: ");
 
-        // imprime o saldo
-        System.out.printf("Saldo: R$ %.2f\n", minhaGrana.getSaldo());
+            opcao = teclado.nextInt();
 
+            switch (opcao) {
+                case 1:
+                    System.out.printf("Quanto quer depositar? ");
+                    double valorDeposito = teclado.nextDouble();
+                    minhaGrana.depositar(valorDeposito);
+                    break;
 
-    }while(opcao != 0);
+                case 2:
+                    System.out.print("Quanto quer sacar? ");
+                    double valorSaque = teclado.nextDouble();
+                    minhaGrana.sacar(valorSaque);
+                    break;
+
+                case 0:
+                    System.out.printf("Saindo...");
+                    break;
+
+                default:
+                    System.out.printf("Opção inválida.");
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
 }
