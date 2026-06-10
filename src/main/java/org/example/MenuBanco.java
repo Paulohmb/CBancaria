@@ -13,35 +13,42 @@ public class MenuBanco {
         do {
             System.out.printf("\nSaldo: R$ %.2f\n", minhaGrana.getSaldo());
 
-            System.out.printf("1 - Depositar");
-            System.out.printf("2 - Sacar");
-            System.out.printf("0 - Sair");
-            System.out.printf("Escolha uma opção: ");
+            System.out.printf("Escolha uma opção: \n ");
+            System.out.printf("1 - Depositar\n ");
+            System.out.printf("2 - Sacar\n ");
+            System.out.printf("0 - Sair\n ");
+
 
             opcao = teclado.nextInt();
 
             switch (opcao) {
                 case 1:
-                    System.out.printf("Quanto quer depositar? ");
+                    System.out.printf("Quanto quer depositar? \n ");
                     double valorDeposito = teclado.nextDouble();
+                    if(valorDeposito <= 0){
+                        System.out.printf("Deposite valores positivos\n ");
+                        continue;
+                    }
                     minhaGrana.depositar(valorDeposito);
                     break;
 
                 case 2:
-                    System.out.print("Quanto quer sacar? ");
+                    System.out.printf("Quanto quer sacar?\n ");
                     double valorSaque = teclado.nextDouble();
-                    minhaGrana.sacar(valorSaque);
+                    if(valorSaque <= 0){
+                        System.out.printf("Saque valores positivos\n ");
+                        continue;
+                    }
+                    minhaGrana.depositar(valorSaque);
                     break;
-
-                case 0:
-                    System.out.printf("Saindo...");
+                case 3:
+                    System.out.printf("Saindo...\n ");
                     break;
 
                 default:
-                    System.out.printf("Opção inválida.");
-                    break;
+                    System.out.printf("Saindo...\n ");
             }
-
         } while (opcao != 0);
     }
 }
+
