@@ -9,7 +9,6 @@ public class MenuBanco {
         ContaBancaria minhaGrana = new ContaBancaria();
 
         int opcao;
-
         do {
             System.out.printf("\nSaldo: R$ %.2f\n", minhaGrana.getSaldo());
 
@@ -17,7 +16,6 @@ public class MenuBanco {
             System.out.printf("1 - Depositar\n ");
             System.out.printf("2 - Sacar\n ");
             System.out.printf("0 - Sair\n ");
-
 
             opcao = teclado.nextInt();
 
